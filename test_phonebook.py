@@ -10,6 +10,7 @@ class PhoneBookTestCase(unittest.TestCase):
         self.add_contact = self.phonebook.add_contact
         self.delete_contact = self.phonebook.delete_contact
         self.view_contact = self.phonebook.view_contact
+        self.update_contact = self.phonebook.update_contact
 
     def test_search(self):
         self.add_contact('jane','diana@email.com','947894704')
@@ -37,9 +38,13 @@ class PhoneBookTestCase(unittest.TestCase):
         results2 = self.search('name', 'diana') #searches to comfirm deletion
         self.assertIsNone(results2) #it does noe exist. Deletion successfull
 
-    def test_view_contact():
-        self.add_contact('jane','diana@email.com','947894704')
-        actual = self.view_contact()
-        self.assertEquals('uuid',('jane','diana@email.com','947894704'))
-
+    def test_update_contact(self):
+        actual = self.add_contact('diana','diana@email.com','9353835') #we need this for test
+        results = self.search('name','nancy')
+        results2 = self.update_contact('uuid',('jane','diana@email.com','9353835'))
+        self.assertIsNone(results)
         
+
+
+
+   
