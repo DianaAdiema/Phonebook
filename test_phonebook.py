@@ -2,6 +2,7 @@ import unittest
 from phonebook import PhoneBook
 
 
+
 class PhoneBookTestCase(unittest.TestCase):
     def setUp(self):
         self.phonebook = PhoneBook()
@@ -27,12 +28,18 @@ class PhoneBookTestCase(unittest.TestCase):
         self.assertEquals(results['tel'],'9353835')
 
     def test_delete(self):
-        self.add_contact('diana','diana@email.com','9353835',uuid) #we need this for test
+        
+        
+        self.add_contact('diana','diana@email.com','9353835') #we need this for test
         results = self.search('name', 'diana') #search for it
         self.assertIsNotNone(results) #confirm it exists
-        self.delete_contact(results[uuid]) #Deletes it regarding the key field,uuid
-        results2 = self.search(results[uuid]) #searches to comfirm deletion
+        self.delete_contact(results['uuid']) #Deletes it regarding the key field,uuid
+        results2 = self.search('name', 'diana') #searches to comfirm deletion
         self.assertIsNone(results2) #it does noe exist. Deletion successfull
 
-    # def test_view_contact():
-    #     pass
+    def test_view_contact():
+        self.add_contact('jane','diana@email.com','947894704')
+        actual = self.view_contact()
+        self.assertEquals('uuid',('jane','diana@email.com','947894704'))
+
+        

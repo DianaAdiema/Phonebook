@@ -1,0 +1,7 @@
+{
+  "test_app.py": true,
+  "test_phonebook.py::PhoneBookTestCase::test_add_contact": true,
+  "test_phonebook.py::PhoneBookTestCase::test_update_contact_exist": true,
+  "test_phonebook.py::PhoneBookTestCase::test_update_contact_not_in_list": true,
+  "test_phonebook.py::PhoneBookTestCase::test_view_contact": true
+}

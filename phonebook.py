@@ -48,7 +48,9 @@ class PhoneBook:
 
     def view_contact(self):
 
-        return self.phonebook_dict
+         for k, v in self.phonebook_dict.items():
+         	return v
+
 
 
 
